@@ -1,0 +1,9 @@
+%% Vad innehåller matriserna?
+% t: Representerar trianglarna. Varje triangel är en kolonn. Rad 1-3 innehåller indexen för triangelns nodpunkter.
+% Rad 4 berättar vilken subdomain triangeln tillhör.
+
+% p: Varje kolonn representerar en nodpunkt, och ger koordinaterna för dessa. Rad 1 är x-koord, Rad 2 är y-koord).
+
+% e: Representerar alla kantlinjer. En kolumn är en kantlinje. Första och
+% andra raden ger indexen för linjens nodpunkter. Rad 5 anger vilken randlinje som punkterna tillhör.
+% Rad 6 resp. 7 ger subdomain-indexet för området till vänster resp. till höger om linjen.
