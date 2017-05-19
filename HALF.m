@@ -4,11 +4,6 @@ convert;
 constants;
 initialize;
 
-%% Half mesh values
-kvec = [66.8, 0.29, 1.059];
-rhoc = [7265*210, 1850*950, 1850*950];
-qnvec = [0, 0, Tinf*alpha, 0, 0, 0, qel, Tinf*alpha, 0, 0, 0, 0, 0];
-
 %% Calculate the K matrix
 for i = 1:nelm
     k = kvec(t(4,i));
@@ -43,8 +38,9 @@ end
 
 %% Time step
 dt = 5;
+cont = 1;
 
-while 1 == 1
+while 1 == cont
     a = solveq(K + Kc + C/dt, fb + C*a/dt);
     ed = extract(edof,a);
     clf
@@ -52,5 +48,8 @@ while 1 == 1
     fill(Ex',Ey',ed');
     fill(-Ex',Ey',ed');
     colorbar;
-    waitforbuttonpress;
+    cont = 0;
+    %waitforbuttonpress;
 end
+
+stress;
