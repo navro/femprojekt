@@ -65,10 +65,10 @@ for i = 1:length(e)
     % Let CALFEM calculate the stresses and strains for the element
     [es,et] = plants(Ex(i,:), Ey(i,:), [2, 1], D, ed);
     
-    % Calculate ?_zz manually (not available in es)
+    % Calculate sigma_zz manually (not available in es)
     sig_zz = ny*(es(1)+es(2)) - alphavec(t(4,i)) * E * dt;
     
-    % Calculate ?_xy from ?_xy
+    % Calculate tau_xy from gamma_xy
     tau_xy = E/(2*(1+ny)) * et(3);
     
     % Subtract thermoelastic strains from es
