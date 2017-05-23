@@ -35,7 +35,7 @@ for i = 1:length(e)
     if e(5,i) == 1  % uy = 0
         bc(e(1,i) + ndof,3) = 1;    % Mark edge node 1 for inclusion (y component only)
         bc(e(2,i) + ndof,3) = 1;    % Mark edge node 2 for inclusion (y component only)
-    elseif e(5,i) == 2 || e(5,i) == 12  % ux = 0
+    elseif e(5,i) == 2 || e(5,i) == 12  || e(5,i) == 13  % ux = 0
         bc(e(1,i),3) =  1;          % Mark edge node 1 for inclusion (x component only)
         bc(e(2,i),3) =  1;          % Mark edge node 2 for inclusion (x component only)
     end
@@ -95,4 +95,4 @@ fill(-Ex', Ey', seff_eff');
 figure(4)
 hold on
 us = extract(newedof, a);
-sfac = eldisp2([-Ex; Ex],[Ey; Ey],[us; us],[1 4 0], 300);
+sfac = eldisp2(Ex, Ey, us,[1 4 0],1000);
